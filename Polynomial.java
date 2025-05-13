@@ -2,7 +2,8 @@ public class Polynomial {
     double[] coefficients;
 
     public Polynomial() {
-        this.coefficients = new double[0];
+        this.coefficients = new double[1];
+        this.coefficients[0] = 0;
     }
 
     public Polynomial(double[] coefficients) {
@@ -10,14 +11,14 @@ public class Polynomial {
     }
 
     public Polynomial add(Polynomial other) {
-        int length = Math.max(this.coefficients.length, other.coefficients.length);
-        double[] result = new double[length];
+        int len = Math.max(this.coefficients.length, other.coefficients.length);
+        double[] result = new double[len];
 
-        for (int i = 0; i < length; i++) {
+        int this_len = this.coefficients.length;
+        int other_len = other.coefficients.length;
+
+        for (int i = 0; i < len; i++) {
             result[i] = 0;
-
-            int this_len = this.coefficients.length;
-            int other_len = other.coefficients.length;
 
             if (this_len > i) {
                 result[i] += this.coefficients[i];
